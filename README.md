@@ -51,7 +51,7 @@ LEGAL  LICENSE-2.0.txt	system_core.dic
 
 ```rb
 # Gemfile
-gem 'rudachi', git: 'https://github.com/SongCastle/rudachi.git', tag: 'v1.0.0'
+gem 'rudachi'
 ```
 
 Then run `bundle install` .
