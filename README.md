@@ -1,4 +1,4 @@
-# rudachi
+# Rudachi
 [Sudachi](https://github.com/WorksApplications/Sudachi) wrapper Gem for JRuby.
 
 - Text base
