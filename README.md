@@ -1,20 +1,20 @@
 # Rudachi
 [Sudachi](https://github.com/WorksApplications/Sudachi) wrapper Gem for JRuby.
 
-- Text base
+#### Text base
 ```rb
 Rudachi::TextParser.parse('東京都へ行く')
 => "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
 ```
 
-- File base
+#### File base
 ```rb
 File.open('sample.txt', 'w') { |f| f << '東京都へ行く' }
 Rudachi::FileParser.parse('sample.txt')
 => "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
 ```
 
-- With [some options](https://github.com/WorksApplications/Sudachi#options)
+#### With [some options](https://github.com/WorksApplications/Sudachi#options)
 ```rb
 Rudachi::TextParser.new(o: 'result.txt', m: 'A').parse('東京都へ行く')
 File.read('result.txt')
@@ -30,7 +30,7 @@ File.read('result.txt')
 
 1. Install JAR and dictionary of Sudachi ([details](https://github.com/WorksApplications/Sudachi/blob/develop/docs/tutorial.md#linux-%E3%81%AE%E5%A0%B4%E5%90%88))
 
-- Install the Sudachi JAR file
+##### Install the Sudachi JAR file
 ```sh
 $ wget https://github.com/WorksApplications/Sudachi/releases/download/v0.5.3/sudachi-0.5.3-executable.zip
 $ unzip sudachi-0.5.3-executable.zip
@@ -38,7 +38,7 @@ $ ls sudachi-0.5.3
 LICENSE-2.0.txt  README.md  javax.json-1.1.jar	jdartsclone-1.2.0.jar  licenses  sudachi-0.5.3.jar  sudachi.json  sudachi_fulldict.json
 ```
 
-- Install the Sudachi dictionary
+##### Install the Sudachi dictionary
 ```sh
 $ wget http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict/sudachi-dictionary-latest-full.zip
 $ unzip -j -d sudachi-dictionary-latest-full sudachi-dictionary-latest-full.zip
