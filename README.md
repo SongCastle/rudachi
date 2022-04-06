@@ -68,7 +68,7 @@ Rudachi::Option.configure do |config|
 end
 ```
 
-4. Dit it !!
+4. Did it !!
 
 ```rb
 require 'rudachi'
