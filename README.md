@@ -28,7 +28,7 @@ File.read('result.txt')
 
 ## Installation
 
-1. Install JAR and dictionary of Sudachi ([details](https://github.com/WorksApplications/Sudachi/blob/develop/docs/tutorial.md#linux-%E3%81%AE%E5%A0%B4%E5%90%88))
+1. Install JAR and dictionary of Sudachi ([Details](https://github.com/WorksApplications/Sudachi/blob/develop/docs/tutorial.md#linux-%E3%81%AE%E5%A0%B4%E5%90%88))
 
 ##### Install the Sudachi JAR file
 ```sh
