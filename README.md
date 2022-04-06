@@ -14,7 +14,7 @@ Rudachi::FileParser.parse('sample.txt')
 => "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
 ```
 
-- With some options
+- With [some options](https://github.com/WorksApplications/Sudachi#options)
 ```rb
 Rudachi::TextParser.new(o: 'result.txt', m: 'A').parse('東京都へ行く')
 File.read('result.txt')
