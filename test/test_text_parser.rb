@@ -31,8 +31,8 @@ describe Rudachi::TextParser do
       it 'writes analyzed words to a output file' do
         ret = Rudachi::TextParser.parse('東京都へ行く')
 
-        expect(ret).must_equal("")
-        expect(File.exist?('./result.txt')).must_equal(true)
+        expect(ret).must_equal('')
+        expect('./result.txt').path_must_exist
         output = File.read('./result.txt')
         expect(output.split(?\n)).must_equal([
           "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都",
@@ -90,8 +90,8 @@ describe Rudachi::TextParser do
       it 'writes analyzed words to a output file' do
         ret = Rudachi::TextParser.new(o: './result.txt').parse('東京都へ行く')
 
-        expect(ret).must_equal("")
-        expect(File.exist?('./result.txt')).must_equal(true)
+        expect(ret).must_equal('')
+        expect('./result.txt').path_must_exist
         output = File.read('./result.txt')
         expect(output.split(?\n)).must_equal([
           "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都",

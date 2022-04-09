@@ -6,13 +6,13 @@ module Rudachi
 
     private
 
-    def config_accessor(name, default: nil)
+    def config_accessor(name, klass:, default:)
       attr_def = <<~EOS
         def self.#{name}; @@#{name}; end
-        def self.#{name}=(val); @@#{name} = val; end
+        def self.#{name}=(val); @@#{name} = #{klass}.new(val); end
       EOS
       module_eval(attr_def)
-      class_variable_set("@@#{name}", default)
+      public_send("#{name}=", default)
     end
   end
 end

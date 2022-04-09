@@ -7,19 +7,18 @@ describe Rudachi do
         config.jar_path = 'path/to/your_sudachi.jar'
       end
 
-      expect(Rudachi.jar_path).must_equal('path/to/your_sudachi.jar')
+      expect(Rudachi.jar_path).must_be(:==, 'path/to/your_sudachi.jar')
     end
-  end
-end
 
-describe Rudachi::Option do
-  describe '.configure' do
-    it 'set "p" option as default' do
-      Rudachi::Option.configure do |config|
-        config.p = 'path/to/your_root_sudachi'
+    describe 'when an invaid configuration' do
+      it 'raises `ArgumentError`' do
+        Rudachi.configure do |config|
+          err = expect {
+            config.jar_path = false
+          }.must_raise(ArgumentError)
+          expect(err.message).must_equal('must be `nil` or `String`')
+        end
       end
-
-      expect(Rudachi::Option.p).must_equal('path/to/your_root_sudachi')
     end
   end
 end
