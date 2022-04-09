@@ -1,4 +1,4 @@
-require 'rudachi/config'
+require 'rudachi/option/config'
 require 'rudachi/loader'
 
 module Rudachi
@@ -11,7 +11,7 @@ module Rudachi
       Rudachi.load!
 
       @output = Java::ByteArrayOutputStream.new
-      @opts   = opts
+      @opts   = Option.new(opts)
     end
 
     def parse(path)
