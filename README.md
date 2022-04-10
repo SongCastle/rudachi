@@ -59,6 +59,8 @@ Then run `bundle install` .
 3. Initialize Rudachi
 
 ```rb
+require 'rudachi'
+
 Rudachi.configure do |config|
   config.jar_path = 'sudachi-0.5.3/sudachi-0.5.3.jar'
 end
@@ -71,8 +73,6 @@ end
 4. Did it !!
 
 ```rb
-require 'rudachi'
-
 Rudachi::TextParser.parse('こんにちは世界')
 => "こんにちは\t感動詞,一般,*,*,*,*\t今日は\n世界\t名詞,普通名詞,一般,*,*,*\t世界\nEOS\n"
 ```
