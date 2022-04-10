@@ -2,7 +2,7 @@
 
 setup_sudachi () {
     if [ -e sudachi ]; then
-    rm -rf sudachi
+        rm -rf sudachi
     fi
     mkdir -p sudachi/tmp
     cd sudachi
@@ -13,17 +13,17 @@ setup_sudachi () {
     mv tmp/*.jar tmp/*.dic ./
     mv system_full.dic system_core.dic
     rm -rf tmp
-    touch pids
+    touch sync
 }
 
 echo -n "\rInstalling Sudachi"
 setup_sudachi &
 
-until [ -e sudachi/pids ]
+until [ -e sudachi/sync ]
 do
     echo -n "."
     sleep 1
 done
-rm -f sudachi/pids
+rm -f sudachi/sync
 
 echo "\nFinish setting up Sudachi !!"
