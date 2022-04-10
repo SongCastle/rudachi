@@ -14,20 +14,18 @@ module MiniTest
         "Expected #{block} to not be raised any exception.\n"
       end
 
-      ret =
-        begin
-          yield
-        rescue Minitest::Assertion, SignalException, SystemExit
-          raise
-        rescue Exception => e
-          flunk proc {
-            exception_details(e, "#{msg.call}#{mu_pp(block)} exception expected, not")
-          }
-          return e
-        end
-
-      pass
-      ret
+      begin
+        ret = yield
+        pass
+        ret
+      rescue Minitest::Assertion, SignalException, SystemExit
+        raise
+      rescue Exception => e
+        flunk proc {
+          exception_details(e, "#{msg.call}#{mu_pp(block)} exception expected, not")
+        }
+        return e
+      end
     end
   end
 
