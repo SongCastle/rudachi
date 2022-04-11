@@ -1,5 +1,5 @@
 # Rudachi
-[Sudachi](https://github.com/WorksApplications/Sudachi) wrapper Gem for JRuby.
+JRuby wrapper for [Sudachi](https://github.com/WorksApplications/Sudachi).
 
 #### For Text
 ```rb
@@ -54,7 +54,7 @@ LEGAL  LICENSE-2.0.txt	system_core.dic
 gem 'rudachi'
 ```
 
-Then run `bundle install` .
+Then run `bundle install`.
 
 3. Initialize Rudachi
 
