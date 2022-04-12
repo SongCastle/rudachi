@@ -49,7 +49,10 @@ module MiniTest
         if klass.const_defined?(const_name)
           before_val = klass.const_get(const_name)
           klass.send(:remove_const, const_name)
-          after_hook = -> { klass.const_set(const_name, before_val) }
+          after_hook = -> do
+            klass.send(:remove_const, const_name)
+            klass.const_set(const_name, before_val)
+          end
         else
           after_hook = -> { klass.send(:remove_const, const_name) }
         end
