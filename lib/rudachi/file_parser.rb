@@ -9,30 +9,33 @@ module Rudachi
 
     def initialize(**opts)
       Rudachi.load!
-
-      @output = Java::ByteArrayOutputStream.new
-      @opts   = Option.new(opts)
+      @opts = Option.new(opts)
     end
 
     def parse(path)
-      take_stdout do
-        Java::SudachiCommandLine.main(
-          Option.cmds(@opts).push(Java::String.new(path))
-        )
+      output_stream do |output|
+        take_stdout(output) do
+          Java::SudachiCommandLine.main(
+            Option.cmds(@opts).push(path)
+          )
+        end
       end
-      @output.toString
     end
 
     private
 
-    def take_stdout
+    def take_stdout(output)
       stdout = Java::System.out
-      stream = Java::PrintStream.new(@output)
-      Java::System.setOut(stream)
 
+      Java::System.setOut(output)
       yield
-
       Java::System.setOut(stdout)
+    end
+
+    def output_stream
+      Java::ByteArrayOutputStream.new.tap do |output|
+        yield Java::PrintStream.new(output)
+      end.toString
     end
   end
 end
