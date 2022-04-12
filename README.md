@@ -1,23 +1,29 @@
 # Rudachi
 JRuby wrapper for [Sudachi](https://github.com/WorksApplications/Sudachi).
 
-#### For Text
+#### Text
 ```rb
 Rudachi::TextParser.parse('東京都へ行く')
 => "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
 ```
 
-#### For File
+#### File
 ```rb
-File.open('sample.txt', 'w') { |f| f << '東京都へ行く' }
-Rudachi::FileParser.parse('sample.txt')
+File.open('input.txt', 'w') { |f| f << '東京都へ行く' }
+Rudachi::FileParser.parse('input.txt')
+=> "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
+```
+
+#### IO
+```rb
+Rudachi::StreamParser.parse(StringIO.new('東京都へ行く'))
 => "東京都\t名詞,固有名詞,地名,一般,*,*\t東京都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
 ```
 
 #### With [some options](https://github.com/WorksApplications/Sudachi#options)
 ```rb
-Rudachi::TextParser.new(o: 'result.txt', m: 'A').parse('東京都へ行く')
-File.read('result.txt')
+Rudachi::TextParser.new(o: 'output.txt', m: 'A').parse('東京都へ行く')
+File.read('output.txt')
 => "東京\t名詞,固有名詞,地名,一般,*,*\t東京\n都\t名詞,普通名詞,一般,*,*,*\t都\nへ\t助詞,格助詞,*,*,*,*\tへ\n行く\t動詞,非自立可能,*,*,五段-カ行,終止形-一般\t行く\nEOS\n"
 ```
 
