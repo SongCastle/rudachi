@@ -3,25 +3,29 @@ require 'rudachi/file_parser'
 module Rudachi
   class TextParser < FileParser
     def parse(text)
-      @input = Java::String.new(text)
-      take_stdin do
-        take_stdout do
-          Java::SudachiCommandLine.main(Option.cmds(@opts))
+      output_stream do |output|
+        take_stdin(input_stream(text)) do
+          take_stdout(output) do
+            Java::SudachiCommandLine.main(Option.cmds(@opts))
+          end
         end
       end
-      @output.toString
     end
 
     private
 
-    def take_stdin
+    def take_stdin(input)
       stdin = Java::System.in
-      stream = Java::ByteArrayInputStream.new(@input.getBytes(Java::UTF_8))
-      Java::System.setIn(stream)
 
+      Java::System.setIn(input)
       yield
-
       Java::System.setIn(stdin)
+    end
+
+    def input_stream(text)
+      Java::ByteArrayInputStream.new(
+        text.to_java.getBytes(Java::UTF_8)
+      )
     end
   end
 end

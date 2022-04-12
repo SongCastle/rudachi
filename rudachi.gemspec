@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version     = Rudachi::VERSION
   s.platform    = Gem::Platform::RUBY
   s.licenses    = 'MIT'
-  s.summary     = 'Sudachi wrapper for JRuby'
+  s.summary     = 'A JRuby wrapper for Sudachi'
   s.email       = '-'
   s.homepage    = 'https://github.com/SongCastle/rudachi'
-  s.description = 'Sudachi wrapper for JRuby.'
+  s.description = 'A JRuby wrapper for Sudachi.'
   s.author      = 'SongCastle'
 
   s.files                 = Dir['lib/**/*', 'README.md']

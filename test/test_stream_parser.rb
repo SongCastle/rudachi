@@ -1,18 +1,10 @@
 require_relative 'test_helper'
 
-describe Rudachi::FileParser do
-  before do
-    File.open('./input.txt', 'w') do |f|
-      f << '東京都へ行く'
-    end
-  end
-
-  after do
-    File.delete('./input.txt')
-  end
+describe Rudachi::StreamParser do
+  let(:input) { StringIO.new('東京都へ行く') }
 
   describe '.parse' do
-    subject { Rudachi::FileParser.parse('./input.txt') }
+    subject { Rudachi::StreamParser.parse(input) }
 
     it 'returns analyzed words' do
       expect(subject).must_be_kind_of(String)
@@ -78,7 +70,7 @@ describe Rudachi::FileParser do
   end
 
   describe '#parse' do
-    subject { Rudachi::FileParser.new(**opts).parse('./input.txt') }
+    subject { Rudachi::StreamParser.new(**opts).parse(input) }
 
     let(:opts) { {} }
 
