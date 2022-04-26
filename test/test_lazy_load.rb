@@ -24,7 +24,7 @@ describe Rudachi::LazyLoad do
   end
 
   describe '.run_load_hooks' do
-    it 'run a registered hook' do
+    it 'runs a registered hook' do
       check = 0
 
       Class.new do
