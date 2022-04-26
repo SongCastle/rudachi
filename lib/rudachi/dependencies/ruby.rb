@@ -17,28 +17,19 @@ module Rudachi
   module StreamProcessor
     class InvalidInclusion < StandardError; end
 
+    TERM = ?\n
+
     def self.included(mod)
       raise InvalidInclusion unless mod.ancestors.include?(TextParser)
     end
 
     def parse(io)
-      r, w = IO.pipe
-
-      Thread.start do
-        while data = io.gets
-          w.puts(data)
-        end
-        w.close
-      end
-
       ret = []
-      while data = r.gets
+      while data = io.gets
         ret << super(data).strip
       end
 
-      r.close
-
-      ret.join(?\n)
+      ret.join(TERM)
     end
 
     LazyLoad.run_load_hooks(:stream_processor)

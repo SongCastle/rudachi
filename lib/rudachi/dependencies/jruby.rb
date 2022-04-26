@@ -36,7 +36,7 @@ module Rudachi
         end
       end
     end
-  end
 
-  LazyLoad.run_load_hooks(:stream_processor)
+    LazyLoad.run_load_hooks(:stream_processor)
+  end
 end
