@@ -29,12 +29,12 @@ File.read('output.txt')
 
 ## Requirements
 
-#### With Ruby
+#### Ruby
 - Ruby 2.3.0 or newer
 - [rjb](https://github.com/arton/rjb) 1.1.1 or newer
 - [Sudachi](https://github.com/WorksApplications/Sudachi)
 
-#### With JRuby
+#### JRuby
 - [JRuby](https://github.com/jruby/jruby) 9.1.3.0 or newer
 - [Sudachi](https://github.com/WorksApplications/Sudachi)
 
