@@ -23,8 +23,8 @@ module Rudachi
   module StreamProcessor
     class InvalidInclusion < StandardError; end
 
-    def self.included(mod)
-      raise InvalidInclusion unless mod.ancestors.include?(TextParser)
+    def self.included(base)
+      raise InvalidInclusion unless base.ancestors.include?(TextParser)
     end
 
     def parse(io)
