@@ -24,7 +24,7 @@ module Rudachi
 
     def input_stream(text)
       Java::ByteArrayInputStream.new(
-        text.to_java.getBytes(Java::UTF_8)
+        Java::String.new(text).getBytes(Java::UTF_8)
       )
     end
   end

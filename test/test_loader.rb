@@ -5,12 +5,23 @@ describe Rudachi do
     it 'loads Sudachi dependencies' do
       expect { Rudachi.load! }.wont_raise
     end
+  end
 
-    describe 'when JRuby is not available' do
-      it 'raises `UnavailableError`' do
-        stub_const('RUBY_PLATFORM','x86_64-linux') do
-          err = expect { Rudachi.load! }.must_raise(Rudachi::UnavailableError)
-          expect(err.message).must_equal('jruby_required')
+  describe '.jruby?' do
+    subject { Rudachi.jruby? }
+
+    describe '`RUBY_PLATFORM` is "java"' do
+      it 'returns `true`' do
+        stub_const('RUBY_PLATFORM', 'java') do
+          expect(subject).must_equal(true)
+        end
+      end
+    end
+
+    describe '`RUBY_PLATFORM` is not "java"' do
+      it 'returns `false`' do
+        stub_const('RUBY_PLATFORM', 'x86_64-linux') do
+          expect(subject).must_equal(false)
         end
       end
     end

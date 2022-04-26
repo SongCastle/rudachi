@@ -1,6 +1,7 @@
 lib = File.expand_path('../../lib', __FILE__)
 $:.unshift(lib) unless $:.include?(lib)
 
+require 'stringio'
 require 'minitest/autorun'
 require 'rudachi'
 require 'rudachi/version'
@@ -73,4 +74,8 @@ Minitest::Spec.before do
   Rudachi::Option.configure do |config|
     config.p = File.expand_path('bin/sudachi', Dir.pwd)
   end
+end
+
+Minitest::Spec.after do
+  Rudachi::LazyLoad.class_variable_set(:@@hooks, {})
 end
