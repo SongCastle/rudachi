@@ -1,5 +1,5 @@
 # Rudachi
-JRuby wrapper for [Sudachi](https://github.com/WorksApplications/Sudachi).
+Ruby wrapper for [Sudachi](https://github.com/WorksApplications/Sudachi).
 
 #### Text
 ```rb
@@ -29,7 +29,13 @@ File.read('output.txt')
 
 ## Requirements
 
-- [JRuby](https://github.com/jruby/jruby) 9.1.3.0 or later
+#### Ruby
+- Ruby 2.3.0 or newer
+- [rjb](https://github.com/arton/rjb) 1.1.1 or newer
+- [Sudachi](https://github.com/WorksApplications/Sudachi)
+
+#### JRuby
+- [JRuby](https://github.com/jruby/jruby) 9.1.3.0 or newer
 - [Sudachi](https://github.com/WorksApplications/Sudachi)
 
 ## Installation

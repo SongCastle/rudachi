@@ -9,7 +9,7 @@ module Rudachi
 
     def initialize(**opts)
       Rudachi.load!
-      @opts = Option.new(opts)
+      @opts = Option.new(**opts)
     end
 
     def parse(path)
