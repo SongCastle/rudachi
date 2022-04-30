@@ -27,14 +27,10 @@ module Rudachi
       raise InvalidInclusion unless base.ancestors.include?(TextParser)
     end
 
-    def parse(io)
-      output_stream do |output|
-        take_stdin(io.to_inputstream) do
-          take_stdout(output) do
-            Java::SudachiCommandLine.main(Option.cmds(@opts))
-          end
-        end
-      end
+    private
+
+    def input_stream(io)
+      io.to_inputstream
     end
 
     LazyLoad.run_load_hooks(:stream_processor)
