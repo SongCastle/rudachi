@@ -33,6 +33,6 @@ module Rudachi
       io.to_inputstream
     end
 
-    LazyLoad.run_load_hooks(:stream_processor)
+    LazyLoad.run_load_hooks(:stream_processor, self)
   end
 end

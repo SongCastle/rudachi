@@ -3,8 +3,8 @@ require 'rudachi/text_parser'
 
 module Rudachi
   class StreamParser < TextParser
-    LazyLoad.on_load(:stream_processor) do
-      include StreamProcessor
+    LazyLoad.on_load(:stream_processor) do |mod|
+      include mod
     end
   end
 end
