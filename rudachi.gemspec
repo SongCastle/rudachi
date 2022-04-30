@@ -6,7 +6,7 @@ require 'rudachi/version'
 Gem::Specification.new do |s|
   s.name        = 'rudachi'
   s.version     = Rudachi::VERSION
-  s.platform    = Gem::Platform::CURRENT
+  s.platform    = Gem::Platform::RUBY
   s.licenses    = 'MIT'
   s.summary     = 'A JRuby wrapper for Sudachi'
   s.email       = '-'
