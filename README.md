@@ -32,6 +32,8 @@ File.read('output.txt')
 - [JRuby](https://github.com/jruby/jruby) 9.1.3.0 or later
 - [Sudachi](https://github.com/WorksApplications/Sudachi)
 
+For Ruby, please check [rudachi-rb](https://github.com/SongCastle/rudachi-rb).
+
 ## Installation
 
 1. Install JAR and dictionary of Sudachi ([Details](https://github.com/WorksApplications/Sudachi/blob/develop/docs/tutorial.md#linux-%E3%81%AE%E5%A0%B4%E5%90%88))
