@@ -1,16 +1,18 @@
 module Rudachi
-  class UnavailableError < StandardError; end;
+  module Loader
+    class UnavailableError < StandardError; end;
 
-  class << self
-    def load!
-      raise UnavailableError, 'jruby_required' unless jruby?
-      require 'rudachi/dependencies'
-    end
+    class << self
+      def load!
+        raise UnavailableError, 'jruby_required' unless jruby?
+        require 'rudachi/dependencies'
+      end
 
-    private
+      private
 
-    def jruby?
-      RUBY_PLATFORM == 'java'
+      def jruby?
+        RUBY_PLATFORM == 'java'
+      end
     end
   end
 end
