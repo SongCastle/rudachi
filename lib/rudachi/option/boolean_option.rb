@@ -7,8 +7,8 @@ module Rudachi
       end
 
       def __getobj__; @value; end
-      def enable?; @value; end
-      def with_arg?; false; end
+      def enable?   ; @value; end
+      def with_arg? ; false ; end
     end
   end
 end

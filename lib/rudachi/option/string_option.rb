@@ -6,9 +6,9 @@ module Rudachi
         @value = str
       end
 
-      def __getobj__; @value; end
-      def enable?; !!@value; end
-      def with_arg?; true; end
+      def __getobj__; @value  ; end
+      def enable?   ; !!@value; end
+      def with_arg? ; true    ; end
     end
   end
 end
