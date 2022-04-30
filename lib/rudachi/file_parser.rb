@@ -8,7 +8,7 @@ module Rudachi
     end
 
     def initialize(**opts)
-      Rudachi.load!
+      Rudachi::Loader.load!
       @opts = Option.new(**opts)
     end
 

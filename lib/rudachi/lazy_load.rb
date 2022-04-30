@@ -8,8 +8,10 @@ module Rudachi
         @@hooks[name] << block
       end
 
-      def run_load_hooks(name)
-        @@hooks[name]&.each(&:call)
+      def run_load_hooks(name, mod)
+        @@hooks[name]&.each do |hook|
+          hook.call(mod)
+        end
       end
     end
   end

@@ -11,7 +11,7 @@ module Rudachi
         def self.#{name}; @@#{name}; end
         def self.#{name}=(val); @@#{name} = #{klass}.new(val); end
       EOS
-      public_send("#{name}=", default)
+      send("#{name}=", default)
     end
   end
 end

@@ -1,15 +1,18 @@
 module Rudachi
-  class << self
-    def load!
-      if jruby?
-        require 'rudachi/dependencies/jruby'
-      else
-        require 'rudachi/dependencies/ruby'
-      end
-    end
+  module Loader
+    class UnavailableError < StandardError; end;
 
-    def jruby?
-      RUBY_PLATFORM == 'java'
+    class << self
+      def load!
+        raise UnavailableError, 'jruby_required' unless jruby?
+        require 'rudachi/dependencies'
+      end
+
+      private
+
+      def jruby?
+        RUBY_PLATFORM == 'java'
+      end
     end
   end
 end

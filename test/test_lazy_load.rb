@@ -34,7 +34,7 @@ describe Rudachi::LazyLoad do
       end
 
       Module.new do
-        Rudachi::LazyLoad.run_load_hooks(:anonymous)
+        Rudachi::LazyLoad.run_load_hooks(:anonymous, self)
       end
 
       expect(check).must_equal(1)
