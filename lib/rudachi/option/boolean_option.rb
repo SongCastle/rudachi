@@ -1,3 +1,5 @@
+require 'delegate'
+
 module Rudachi
   class Option
     class BooleanOption < Delegator
